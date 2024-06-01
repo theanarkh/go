@@ -170,6 +170,7 @@ func notesleep(n *note) {
 		throw("notesleep not on g0")
 	}
 	semacreate(gp.m)
+	// m.n.key 关联到 m
 	if !atomic.Casuintptr(&n.key, 0, uintptr(unsafe.Pointer(gp.m))) {
 		// Must be locked (got wakeup).
 		if n.key != locked {

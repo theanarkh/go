@@ -36,7 +36,7 @@ func semacreate(mp *m) {
 }
 
 //go:nosplit
-func semasleep(ns int64) int32 {
+func semasleep(ns int64) int32 { // 进入（超时）睡眠
 	var start int64
 	if ns >= 0 {
 		start = nanotime()
